@@ -69,7 +69,7 @@ Data Types: (numeric, vector)
 
 Specified optional comma-separated pairs of ```Name,Value``` arguments. ```Name``` is the is the argument name and ```Value``` is the corresponding value. ```Name``` musta ppear inside single or double quotes. You can specify several name and value pair arguments in any order as ```Name1,Value1,...,NameN,ValueN```. 
 
-**Example**: ```'name1', value1, 'name2', value2``` specifies blah blah blah.
+**Example**: ```'alternative', 'less'``` specifies a test that the group average of [data1](#data1) is less than the group average of [data2](#data2).
 
 ### ```paired```
 Compute the paired difference (default=`false`)
@@ -120,7 +120,7 @@ Statistic to compute and compare permuted group values.
 Data Types: (function handle)
 
 ### ```parQuick```
-Use parallel computation (default=`true`)
+Use parallel computation (default=`false`)
 
 Whether or not to use parallel computation.  
 
