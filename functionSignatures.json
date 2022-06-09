@@ -1,0 +1,20 @@
+{
+  "_schemaVersion": "1.0.0",
+
+  "permutation_test":
+  {
+     "inputs": 
+     [
+         {"name":"data1", "kind":"required", "type":["numeric"], "purpose":"data1 vector"}, 
+         {"name":"data2", "kind":"required", "type":["numeric"], "purpose":"data2 vector"}, 
+         {"name":"paired", "kind":"namevalue", "type":["logical","scalar"], "purpose":"Paired test (default=false)"}, 
+         {"name":"alternative", "kind":"namevalue", "type": ["char", "choices={'two-sided', 'greater', 'less'}"], "purpose":"Alternative hypothesis (default='two-sided')"}, 
+         {"name":"mu", "kind":"namevalue", "type": ["numeric"], "purpose":"Hypothesized population mean (default=0)"}, 
+         {"name":"iterations", "kind":"namevalue", "type": ["numeric"], "purpose":"# of iterations (default=1e5)"}, 
+         {"name":"vis", "kind":"namevalue", "type":["logical","scalar"], "purpose":"Visualize resamples (default=false)"}, 
+         {"name":"test_fun", "kind":"namevalue", "type": ["char"], "purpose":"Test function (default=@mean)"}, 
+         {"name":"parQuick", "kind":"namevalue", "type":["logical","scalar"], "purpose":"Parallel processing (default=false)"}
+     ]
+  }
+
+}
