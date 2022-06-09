@@ -4,7 +4,7 @@ title: Python
 permalink: /Python/
 ---
 
-# [function](https://function_link)
+# [permutation_test](https://function_link)
 ---
 
 Description. See [function_main.ipynb](https://function_main.ipynb) for a notebook of given examples. 
