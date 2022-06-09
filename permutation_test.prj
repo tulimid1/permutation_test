@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration build-checksum="4073646395" file="/Users/duncan/Documents/GitHub/permutation_test/permutation_test.prj" location="/Users/duncan/Documents/GitHub/permutation_test" name="permutation_test" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="48598069" file="/Users/duncan/Documents/GitHub/permutation_test/permutation_test.prj" location="/Users/duncan/Documents/GitHub/permutation_test" name="permutation_test" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>permutation_test</param.appname>
     <param.authnamewatermark>Duncan Tulimieri</param.authnamewatermark>
     <param.email>tulimid@udel</param.email>
@@ -34,7 +34,13 @@
 % **/*.bak
 %
 **/.git
-.DS_Store</param.exclude.filters>
+.DS_Store
+**/dist
+**/permutation_testing
+**/permutation_testing.egg-info
+pyproject.toml
+setup.cfg
+Using_permutation_test.ipynb</param.exclude.filters>
     <param.exclude.pcodedmfiles>true</param.exclude.pcodedmfiles>
     <param.examples>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;examples&gt;
@@ -107,16 +113,11 @@
     <fileset.rootfiles>
       <file>${PROJECT_ROOT}/LICENSE</file>
       <file>${PROJECT_ROOT}/README.md</file>
-      <file>${PROJECT_ROOT}/Using_permutation_test.ipynb</file>
       <file>${PROJECT_ROOT}/Using_permutation_test.mlx</file>
-      <file>${PROJECT_ROOT}/dist</file>
+      <file>${PROJECT_ROOT}/demos.xml</file>
       <file>${PROJECT_ROOT}/functionSignatures.json</file>
       <file>${PROJECT_ROOT}/html</file>
       <file>${PROJECT_ROOT}/permutation_test.m</file>
-      <file>${PROJECT_ROOT}/permutation_testing</file>
-      <file>${PROJECT_ROOT}/permutation_testing.egg-info</file>
-      <file>${PROJECT_ROOT}/pyproject.toml</file>
-      <file>${PROJECT_ROOT}/setup.cfg</file>
     </fileset.rootfiles>
     <fileset.depfun.included />
     <fileset.depfun.excluded />
