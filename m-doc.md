@@ -152,7 +152,7 @@ Data Types: (numeric, scalar)
 ## More About 
 ---
 
-This is a great function to use for analyses. This function supports one- and two-tailed tests. It can used in combination with [CLES]() to determine a non-parametric effect size of the difference. 
+This is a great function to use for analyses. This function supports one- and two-tailed tests. It can used in combination with [CLES](https://tulimid1.github.io/CLES/MATLAB/) to determine a non-parametric effect size of the difference. 
 
 ## Tips 
 ---
