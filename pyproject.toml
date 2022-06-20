@@ -3,14 +3,14 @@ requires = ["setuptools>=42"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-where = ["permutation_testing"]  
+where = ["permutation_testing"]  # module folder name 
 include = ["permutation_test*"]  # ["*"] by default
 exclude = ["html*"]  # empty by default
 namespaces = false  # true by default
 
 [project]
-name = "permutation_testing"
-version = "0.0.2"
+name = "permutation_testing" # !!!!!!!!! NEEDS TO BE SAME NAME AS MODULE !!!!!!
+version = "0.0.2" # DO NOT FORGET TO UPDATE 
 authors = [
   { name="Duncan Tulimieri", email="tulimid@udel.edu" },
 ]
