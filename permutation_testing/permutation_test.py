@@ -147,7 +147,7 @@ def permutation_test(data1, data2=None, paired=False, alternative='two-sided', m
     
     # alternative hypothesis 
     if alternative=='two-sided':
-        total = numpy.sum(t_diff <= -abs_data_diff) + numpy.sum(t_diff >= abs_data_diff)
+        total = numpy.sum(t_diff <= -abs_data_diff or t_diff >= abs_data_diff)
     elif alternative=='greater':
         total = numpy.sum(t_diff >= data_diff)
     elif alternative=='less':

@@ -37,15 +37,19 @@ vectorNumbers = @(x) isnumeric(x) & isvector(x);
 scaleNum = @(x) isscalar(x) & isnumeric(x); 
 addRequired(p, 'data1', vectorNumbers);
 addRequired(p, 'data2', vectorNumbers);
-addParameter(p, 'paired', false, @islogical); % not sure if this is right
+addParameter(p, 'paired', false, @islogical); 
 addParameter(p, 'alternative', 'two-sided', @mustBeText);
-addParameter(p, 'mu', 0, scaleNum); % not sure if this is right
+addParameter(p, 'mu', 0, scaleNum);
 addParameter(p, 'iterations', 1000000, scaleNum); 
 addParameter(p, 'vis', false, @islogical); 
 addParameter(p, 'test_fun', @mean, @(x) strcmpi(class(x), 'function_handle')); 
 addParameter(p, 'parQuick', false, @islogical); 
 addParameter(p, 'bound', nan, scaleNum); 
 parse(p, data1, data2, varargin{:}); 
+
+if p.Results.iterations < 10000
+    warning('Number of iterations may not be enough to encourage convergence')
+end
 
 % assignment vector 
 assign1 = zeros([length(data1), 1]);
@@ -86,17 +90,18 @@ end
 
 % pre-allocations
 t_diff = nan(1,p.Results.iterations);
+isPaired = p.Results.paired; testFun = p.Results.test_fun; 
 parfor (i = 1:p.Results.iterations, numWorkers)
-    if p.Results.paired || isempty(data2)
+    if isPaired || isempty(data2)
         % randomly sample indices
         rnd = randsample(length(data), length(data), true);
         % find test function of randomly sampled data 
-        t_diff(i) = p.Results.test_fun(data(rnd)); 
+        t_diff(i) = feval(testFun, data(rnd)); 
     else
         % randomly assign new groups 
         rnd = assignment(randperm(length(assignment))); 
         % find the difference  
-        t_diff(i) = p.Results.test_fun(data(rnd == 0)) - p.Results.test_fun(data(rnd == 1));
+        t_diff(i) = feval(testFun, data(rnd == 0)) - feval(testFun, data(rnd == 1));
     end
 end
 
@@ -114,7 +119,7 @@ else % manually set bound
 end
 
 if strcmpi(p.Results.alternative, 'two-sided')
-    total = sum(t_diff <= -abs_data_diff) + sum(t_diff >= abs_data_diff);
+    total = sum(t_diff <= -abs_data_diff | t_diff >= abs_data_diff);
 elseif strcmpi(p.Results.alternative, 'greater')
     total = sum(t_diff >= data_diff);
 elseif strcmpi(p.Results.alternative, 'less')
@@ -125,7 +130,7 @@ end
 p_val = total / p.Results.iterations; 
 
 if p.Results.vis % visualize 
-    figure();
+    figure('visible', 'on');
     histogram(t_diff)
     hold on 
     if strcmpi(p.Results.alternative, 'two-sided')
